@@ -41,15 +41,15 @@ int com_erro = 0;
 */
 
 unsigned char blue(int rgb) {
-  return 0;
+  return rgb >> 0;
 }
 
 unsigned char green(int rgb) {
-  return 0;
+  return rgb >> 8;
 }
 
 unsigned char red(int rgb) {
-  return 0;
+  return rgb >> 16;
 }
 
 /* ------------------------------------ */
@@ -60,7 +60,8 @@ unsigned char red(int rgb) {
 */
 
 int rgb_to_int(unsigned char r, unsigned char g, unsigned char b) {
-  return 0;
+  int rgb = r << 16 | g << 8 | b;
+  return rgb;
 }
 
 /*
@@ -70,7 +71,9 @@ int rgb_to_int(unsigned char r, unsigned char g, unsigned char b) {
 */
 
 void int_to_rgb(int rgb, unsigned char *r, unsigned char *g, unsigned char *b) {
-
+  *b = rgb;
+  *g = rgb >> 8;
+  *r = rgb >> 16;
 }
 
 /*
@@ -80,11 +83,11 @@ void int_to_rgb(int rgb, unsigned char *r, unsigned char *g, unsigned char *b) {
 */
 
 int zera_vermelho(int rgb) {
-  return 0;
+  return rgb & 0x0000FFFF;
 }
 
 int verde_255(int rgb) {
-  return 0;
+  return rgb | 0x0000FF00;
 }
 
 /*
@@ -98,7 +101,10 @@ int verde_255(int rgb) {
 */
 
 int bgr_to_rgb(unsigned int bgr) {
-  return 0;
+  unsigned char b = bgr >> 24;
+  unsigned char g = bgr >> 16;
+  unsigned char r = bgr >> 8;
+  return  r << 16 | g << 8 | b << 0;
 }
 
 /* ------------------------------------ */
