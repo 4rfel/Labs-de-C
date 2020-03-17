@@ -53,7 +53,7 @@ unsigned char red(int rgb) {
 }
 
 /* ------------------------------------ */
-
+ 
 /*
    Agora vamos montar um inteiro a partir dos valores de
    *r*, *g* e *b* recebidos por argumento.
